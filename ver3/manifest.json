@@ -1,0 +1,41 @@
+{
+  "manifest_version": 3,
+  "name": "Hiyori Sub Overlay",
+  "version": "1.1.1",
+  "description": "Overlay local subtitles (SMI/SRT/ASS) on any HTML5 video with perfect time sync. Korean encodings handled. Improved multi-frame & shadow DOM detection.",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting",
+    "webNavigation"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Hiyori Sub Overlay"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "subtitleParser.js",
+        "contentScript.js"
+      ],
+      "css": [
+        "overlay.css"
+      ],
+      "run_at": "document_idle",
+      "all_frames": true,
+      "match_about_blank": true
+    }
+  ],
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}

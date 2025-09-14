@@ -1,0 +1,88 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Hiyori Sub Overlay</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="wrap">
+    <h1>자막 오버레이</h1>
+
+    <div class="row">
+      <label>대상 프레임/비디오:</label>
+      <select id="videoSelect"></select>
+      <button id="refreshBtn" title="비디오 다시 검색">↻</button>
+    </div>
+
+    <div class="row file">
+      <input type="file" id="fileInput" accept=".srt,.ass,.ssa,.smi,.sami,.txt">
+    </div>
+
+    <div class="row">
+      <label for="encoding">인코딩:</label>
+      <select id="encoding">
+        <option value="auto">자동 감지(권장)</option>
+        <option value="utf-8">UTF-8</option>
+        <option value="utf-16le">UTF-16LE</option>
+        <option value="utf-16be">UTF-16BE</option>
+        <option value="euc-kr">EUC-KR / CP949 호환</option>
+        <option value="windows-1252">Latin-1(비권장)</option>
+      </select>
+    </div>
+
+    <div class="row">
+      <label for="offset">오프셋(ms):</label>
+      <input id="offset" type="number" value="0" step="50">
+      <span class="hint">(+는 자막을 늦게, -는 빠르게)</span>
+    </div>
+
+    <div class="row">
+      <button id="loadBtn">자막 적용</button>
+      <button id="unloadBtn">자막 제거</button>
+    </div>
+
+    <hr>
+
+    <h2>스타일</h2>
+    <div class="row">
+      <label for="font">폰트:</label>
+      <input id="font" type="text" value='"Noto Sans CJK KR", "Malgun Gothic", "Apple SD Gothic Neo", sans-serif'>
+    </div>
+
+    <div class="row">
+      <label for="fontSize">크기(px):</label>
+      <input id="fontSize" type="number" min="10" max="120" value="48">
+    </div>
+
+    <div class="row">
+      <label for="color">글자색:</label>
+      <input id="color" type="color" value="#ffffff">
+    </div>
+
+    <div class="row">
+      <label for="bgColor">배경색:</label>
+      <input id="bgColor" type="color" value="#000000">
+    </div>
+
+    <div class="row">
+      <label for="bgOpacity">배경 투명도:</label>
+      <input id="bgOpacity" type="range" min="0" max="1" step="0.01" value="0.8">
+      <span id="bgOpacityVal">0.8</span>
+    </div>
+
+    <div class="row">
+      <label><input id="textShadow" type="checkbox" checked> 텍스트 섀도(가독성)</label>
+    </div>
+
+    <div class="row">
+      <label><input id="visible" type="checkbox" checked> 자막 보이기/숨기기</label>
+    </div>
+
+    <div class="foot">여러 프레임의 비디오도 찾아서 선택할 수 있게 만들었어… 안심해도 돼.</div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
